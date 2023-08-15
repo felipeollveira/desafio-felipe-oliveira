@@ -34,7 +34,7 @@ describe('CaixaDaLanchonete', () => {
         ['debito', 'Quantidade inválida!', ['cafe,1.5']],
         ['debito', 'Quantidade inválida!', ['cafe,']],
         ['debito', 'Quantidade inválida!', ['cafe,0']],
-    ])('Digitacao de quantidade errada deve retornar: "Quantidade invalida!"', validaTeste);
+    ])('Digitacao de quantidade deve ser unicamente de *numeros inteiros > 0*. Quantidade errada deve retornar: "Quantidade invalida!"', validaTeste);
     //Forma de pagamento inválida!
     test.each([
         ['pix', 'Forma de pagamento inválida!', ['combo2,1']],
