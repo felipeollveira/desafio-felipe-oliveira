@@ -18,7 +18,7 @@ class CaixaDaLanchonete {
                 // Se algum item do carrinho não existir no cardapio
                 // Se 80% da digitação do item estiver correta, a função caça o item digitado pelo item mais parecido no array - em manuntencao
                 if (itemEscolhido === undefined) {
-                    // o fluxo do programa é interrompido imediatamente e o erro é lançado
+                    // throw new error: o fluxo do programa é interrompido imediatamente e o erro é lançado
                     throw new Error(`Item inválido!`);
                 }
                 // Se a quantidade for igual a 0, ou
@@ -41,10 +41,9 @@ class CaixaDaLanchonete {
                 // Caso nenhuma das verificações acima seja verdadeira, os itens vão direto para essa função
                 } else {
                     const precoDoItem = itemEscolhido.preco * novaQuantidade;
-                    valorTotal += precoDoItem;
-                }
+                    valorTotal += precoDoItem;}
             });
-
+            //itens extras sem o item principal 
             if (!seExtra) {
                 return 'Item extra não pode ser pedido sem o principal';
             }
@@ -67,9 +66,5 @@ class CaixaDaLanchonete {
         }
     }
 }
-
-const caixa = new CaixaDaLanchonete();
-const resultado = caixa.calcularValorDaCompra('credito', ['cafe,2','chantily,1']);
-console.log(resultado);
 
 export { CaixaDaLanchonete };
