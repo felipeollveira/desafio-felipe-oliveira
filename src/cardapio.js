@@ -48,7 +48,12 @@ class itensOfCardapio {
 
 
 }
-
+//ANOTACOES
+//os itens possuem um tipo: principal, extra ou combo
+//apenas itens extras precisam estar acompanhados de principais
+//itens tipo extra possuem strings "principal" que apontam o codigo do item que eles acompanham
+/* se combo nao eh considerado principal, entao os itens extras ainda assim precisam estar 
+acompanhados dos seus respectivos principais */
 
 const cardapio = new itensOfCardapio();
 export { cardapio };
