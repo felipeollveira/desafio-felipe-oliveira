@@ -27,6 +27,28 @@ describe('CaixaDaLanchonete', () => {
         ['credito', 'R$ 11,85', ['cafe,1', 'sanduiche,1', 'queijo,1']],
         ['debito', 'R$ 11,50', ['cafe,1', 'sanduiche,1', 'queijo,1']],
     ])('compra de 3 itens em %p deve resultar em %p', validaTeste);
+    
+    //Quantidade invalida!
+    test.each([
+        ['dinheiro', 'Quantidade inválida!', ['cafe,t']],
+        ['debito', 'Quantidade inválida!', ['cafe,1.5']],
+        ['debito', 'Quantidade inválida!', ['cafe,']],
+        ['debito', 'Quantidade inválida!', ['cafe,0']],
+    ])('Digitacao de quantidade errada deve retornar: "Quantidade invalida!"', validaTeste);
+    //Forma de pagamento inválida!
+    test.each([
+        ['pix', 'Forma de pagamento inválida!', ['combo2,1']],
+        ['cartao de credito', 'Forma de pagamento inválida!', ['cafe,3']],
+      ])('Se forma de pagamento inexistente: "Forma de pagamento inválida!"', validaTeste);
+    //Combos nao sao considerados itens principais
+      test.each([
+        ['debito', 'Item extra não pode ser pedido sem o principal', ['combo2,1','queijo,1']],
+        ['dinheiro', 'Item extra não pode ser pedido sem o principal', ['chantily,3','combo2,1']],
+      ])('Combos nao sao considerados itens principais', validaTeste);
+    //Não há itens no carrinho de compra!
+      test.each([
+        ['debito', 'Não há itens no carrinho de compra!',[] ],
+        ])('Não há itens no carrinho de compra!', validaTeste);
 
     test.each([
         ['dinheiro', 'R$ 33,73', ['cafe,4', 'sanduiche,3', 'queijo,2']],
@@ -49,4 +71,7 @@ describe('CaixaDaLanchonete', () => {
         ['queijo com outro item', 'debito', 'Item extra não pode ser pedido sem o principal', ['cafe,1', 'queijo,1']],
     ])('compra %p em %p deve resultar em %p', (_, formaDePagamento, resultadoEsperado, itens) =>
         validaTeste(formaDePagamento, resultadoEsperado, itens));
+
+
+
 });
