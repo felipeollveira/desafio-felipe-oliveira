@@ -18,8 +18,7 @@ class CaixaDaLanchonete {
                 // Se algum item do carrinho não existir no cardapio
                 // Se 80% da digitação do item estiver correta, a função caça o item digitado pelo item mais parecido no array - em manuntencao
                 if (itemEscolhido === undefined) {
-                    // Throw new error guarda a mensagem e é apenas exibida na chamada do catch
-                    // Alternativa ao console.log, visto que ele interrompe o fluxo do sistema
+                    // o fluxo do programa é interrompido imediatamente e o erro é lançado
                     throw new Error(`Item inválido!`);
                 }
                 // Se a quantidade for igual a 0, ou
