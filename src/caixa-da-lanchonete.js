@@ -46,7 +46,7 @@ class CaixaDaLanchonete {
             });
             //itens extras sem o item principal 
             if (!seExtra) {
-                 throw new error ('Item extra não pode ser pedido sem o principal');
+                 throw new Error ('Item extra não pode ser pedido sem o principal');
             }
             // Métodos de pagamentos e acréscimo de crédito, e desconto de dinheiro. Débito segue preço normal
             if (metodoDePagamento === 'credito') {
