@@ -24,6 +24,7 @@ class CaixaDaLanchonete {
                 // Se a quantidade for igual a 0, ou
                 // Se o usuário não digitar a quantidade, ou
                 // Se o usuário digitar a quantidade em extenso (Ex: "três(3)")
+                // ou se o numero nao for inteiro (ex: 1.5)
                 if (novaQuantidade == 0 || novaQuantidade === undefined || isNaN(novaQuantidade) || !Number.isInteger(Number(novaQuantidade))) {
                     throw new Error(`Quantidade inválida!`);
                 }
