@@ -57,8 +57,9 @@ class CaixaDaLanchonete {
             }
 
             // Formatação do dinheiro em reais
-            const valorFormatado = valorTotal.toFixed(2).replace('.', ',');
-            return `R$ ${valorFormatado}`;
+            //const valorFormatado = valorTotal.toFixed(2).replace('.', ',');
+            const valorFormatado = (valorTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })).replace('.',',');
+            return `${valorFormatado}`;
 
         // Chamada das mensagens de erro
         } catch (error) {
