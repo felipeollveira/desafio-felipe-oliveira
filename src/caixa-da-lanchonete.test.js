@@ -50,12 +50,27 @@ describe('CaixaDaLanchonete', () => {
         ['debito', 'Não há itens no carrinho de compra!',[] ],
         ])('Não há itens no carrinho de compra!', validaTeste);
 
+<<<<<<< HEAD
+    //Item extra possui mais de um principal
+    test.each([
+        ['debito', 'R$ 16,50', ['combo1,1','ketchup,1','sanduiche,1']],
+        ['dinheiro', 'Item extra não pode ser pedido sem o principal', ['cafe,3','ketchup,1']],
+      ])('um item extra pode ter mais de um item principal', validaTeste);
+
+=======
+>>>>>>> 3903ec6f1aef18f1f6cb7d7a55d4b520e2ee42d9
     test.each([
         ['dinheiro', 'R$ 33,73', ['cafe,4', 'sanduiche,3', 'queijo,2']],
         ['credito', 'R$ 36,56', ['cafe,4', 'sanduiche,3', 'queijo,2']],
         ['debito', 'R$ 35,50', ['cafe,4', 'sanduiche,3', 'queijo,2']],
     ])('compra de múltiplas quantidades em %p deve resultar em %p', validaTeste);
 
+<<<<<<< HEAD
+    
+
+
+=======
+>>>>>>> 3903ec6f1aef18f1f6cb7d7a55d4b520e2ee42d9
     test.each([
         ['com quantidade zero', 'dinheiro', 'Quantidade inválida!', ['cafe,0']],
         ['com um valor', 'credito', 'Item inválido!', ['1']],
@@ -74,4 +89,8 @@ describe('CaixaDaLanchonete', () => {
 
 
 
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 3903ec6f1aef18f1f6cb7d7a55d4b520e2ee42d9
