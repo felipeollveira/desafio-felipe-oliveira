@@ -15,26 +15,25 @@ class CaixaDaLanchonete {
             itens.forEach(itemInfo => {
                 const [itemNome, novaQuantidade] = itemInfo.split(',');
                 const itemEscolhido = cardapio.cardapio.find(cardapioItem => cardapioItem[itemNome] !== undefined);
-<<<<<<< HEAD
-                
+   
                 // Se algum item do carrinho não existir no cardapio
                 if (itemEscolhido === undefined) {
-=======
+
                 // Se algum item do carrinho não existir no cardapio
                 // Se 80% da digitação do item estiver correta, a função caça o item digitado pelo item mais parecido no array - em manuntencao
                 if (itemEscolhido === undefined) {
                     // throw new error: o fluxo do programa é interrompido imediatamente e o erro é lançado
->>>>>>> 3903ec6f1aef18f1f6cb7d7a55d4b520e2ee42d9
+
                     throw new Error(`Item inválido!`);
                 }
                 // Se a quantidade for igual a 0, ou
                 // Se o usuário não digitar a quantidade, ou
                 // Se o usuário digitar a quantidade em extenso (Ex: "três(3)")
                 // ou se o numero nao for inteiro (ex: 1.5)
-                if (novaQuantidade == 0 || novaQuantidade === undefined || isNaN(novaQuantidade) || !Number.isInteger(Number(novaQuantidade))) {
+                if (novaQuantidade <= 0 || novaQuantidade === undefined || isNaN(novaQuantidade) || !Number.isInteger(Number(novaQuantidade))) {
                     throw new Error(`Quantidade inválida!`);
                 }
-<<<<<<< HEAD
+
                 // Se um dos itens for do tipo extra
                 if (itemEscolhido.tipo === 'extra') {
                     const nomeDoItemPrincipal = itemEscolhido.principal;
@@ -62,7 +61,7 @@ class CaixaDaLanchonete {
                 }
             });
             
-=======
+
                 // Se um dos itens for do tipo extra, verifica se algum dos itens escolhidos são seus respectivos principais
                 if (itemEscolhido.tipo === 'extra') {
                     const nomeDoItemPrincipal = itemEscolhido.principal;
@@ -83,7 +82,7 @@ class CaixaDaLanchonete {
             if (!seExtra) {
                  throw new Error ('Item extra não pode ser pedido sem o principal');
             }
->>>>>>> 3903ec6f1aef18f1f6cb7d7a55d4b520e2ee42d9
+
             // Métodos de pagamentos e acréscimo de crédito, e desconto de dinheiro. Débito segue preço normal
             if (metodoDePagamento === 'credito') {
                 valorTotal *= 1.03;
@@ -101,7 +100,7 @@ class CaixaDaLanchonete {
         // Chamada das mensagens de erro
         } catch (error) {
             return (error.message);
-=======
+
            const valorFormatado = valorTotal.toFixed(2).replace('.', ',');
             //const valorFormatado = (valorTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })).replace('.',',');
             return `R$ ${valorFormatado}`;
@@ -109,17 +108,16 @@ class CaixaDaLanchonete {
         // Chamada das mensagens de erro
         } catch (error) {
             return error.message;
->>>>>>> 3903ec6f1aef18f1f6cb7d7a55d4b520e2ee42d9
+
         }
     }
 }
 
-<<<<<<< HEAD
+
 const caixa = new CaixaDaLanchonete().calcularValorDaCompra('debito', ['ketchup,1','combo1,1','sanduiche,1'])
 //ex: 'debito' , ['cafe,1],['chantily,2'] ou 'dinheiro' , ['combo,4']
 //desafio é com RETURN
 
 
-=======
->>>>>>> 3903ec6f1aef18f1f6cb7d7a55d4b520e2ee42d9
+
 export { CaixaDaLanchonete };
